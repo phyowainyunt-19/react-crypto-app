@@ -2,9 +2,15 @@ import React from "react";
 import millify from "millify";
 import { Typography, Row, Col, Statistic } from "antd";
 import { Link } from "react-router-dom";
+import { useGetCryptosQuery } from "../services/cryptoApi";
 
 const { Title } = Typography;
 const HomePage = () => {
+  // * isFetching is built in from redux
+  const { data, isFetching } = useGetCryptosQuery();
+  const globalStats = data?.data?.stats;
+  console.log(data);
+
   return (
     <>
       <Title level={2} className="heading">
@@ -12,22 +18,37 @@ const HomePage = () => {
       </Title>
       <Row>
         <Col span={12}>
-          <Statistic title="Total Cryptocurrencies" value={12150} />
+          <Statistic title="Total Cryptocurrencies" value={globalStats.total} />
         </Col>
         <Col span={12}>
-          <Statistic title="Total Exchanges" value={373} />
+          <Statistic
+            title="Total Exchanges"
+            value={millify(globalStats.totalExchanges)}
+          />
         </Col>
         <Col span={12} style={{ marginTop: 32 }}>
-          <Statistic title="Total Market Cap" value={`$2.2T`} />
+          <Statistic
+            title="Total Market Cap"
+            value={`${millify(globalStats.totalMarketCap)}`}
+          />
         </Col>
         <Col span={12} style={{ marginTop: 32 }}>
-          <Statistic title="Total 24h Volume" value={`$135.5B`} />
+          <Statistic
+            title="Total 24h Volume"
+            value={`${millify(globalStats.total24hVolume)}`}
+          />
         </Col>
         <Col span={12} style={{ marginTop: 32 }}>
-          <Statistic title="Total Cryptocurrencies" value={12150} />
+          <Statistic
+            title="Total Cryptocurrencies"
+            value={`${millify(globalStats.totalCoins)}`}
+          />
         </Col>
         <Col span={12} style={{ marginTop: 32 }}>
-          <Statistic title="Total Markets" value={`79.8k `} />
+          <Statistic
+            title="Total Markets"
+            value={`${millify(globalStats.totalMarkets)}`}
+          />
         </Col>
       </Row>
     </>
