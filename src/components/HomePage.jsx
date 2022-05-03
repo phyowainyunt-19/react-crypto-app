@@ -4,12 +4,17 @@ import { Typography, Row, Col, Statistic } from "antd";
 import { Link } from "react-router-dom";
 import { useGetCryptosQuery } from "../services/cryptoApi";
 
+import { Cryptocurrencies, News } from "../components";
+
 const { Title } = Typography;
+
 const HomePage = () => {
   // * isFetching is built in from redux
   const { data, isFetching } = useGetCryptosQuery();
   const globalStats = data?.data?.stats;
   console.log(data);
+
+  if (isFetching) return "Loading...";
 
   return (
     <>
@@ -18,7 +23,10 @@ const HomePage = () => {
       </Title>
       <Row>
         <Col span={12}>
-          <Statistic title="Total Cryptocurrencies" value={globalStats.total} />
+          <Statistic
+            title="Total Cryptocurrencies"
+            value={millify(globalStats.total)}
+          />
         </Col>
         <Col span={12}>
           <Statistic
@@ -51,6 +59,24 @@ const HomePage = () => {
           />
         </Col>
       </Row>
+      <div className="home-heading-container">
+        <Title level={2} className="home-title">
+          Top 10 Cryptocurrencies in the world
+        </Title>
+        <Title level={3} className="show-more">
+          <Link to="/crypto">Show More</Link>
+        </Title>
+      </div>
+      <Cryptocurrencies simplified />
+      <div className="home-heading-container">
+        <Title level={2} className="home-title">
+          Latest Crypto News
+        </Title>
+        <Title level={3} className="show-more">
+          <Link to="/news">Show More</Link>
+        </Title>
+      </div>
+      <News />
     </>
   );
 };
