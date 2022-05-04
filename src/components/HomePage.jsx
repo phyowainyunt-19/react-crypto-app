@@ -10,7 +10,7 @@ const { Title } = Typography;
 
 const HomePage = () => {
   // * isFetching is built in from redux
-  const { data, isFetching } = useGetCryptosQuery();
+  const { data, isFetching } = useGetCryptosQuery(10);
   const globalStats = data?.data?.stats;
   console.log(data);
 
