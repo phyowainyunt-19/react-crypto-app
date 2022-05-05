@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import { useGetCryptosQuery } from "../services/cryptoApi";
 
 import { Cryptocurrencies, News } from "../components";
+// import { useGetCryptoNewsQuery } from "../services/cryptoNewsApi";
 
 const { Title } = Typography;
 
@@ -12,7 +13,7 @@ const HomePage = () => {
   // * isFetching is built in from redux
   const { data, isFetching } = useGetCryptosQuery(10);
   const globalStats = data?.data?.stats;
-  console.log(data);
+  // console.log(data);
 
   if (isFetching) return "Loading...";
 
@@ -76,7 +77,7 @@ const HomePage = () => {
           <Link to="/news">Show More</Link>
         </Title>
       </div>
-      <News />
+      <News simplified />
     </>
   );
 };
