@@ -12,7 +12,7 @@ const Cryptocurrencies = ({ simplified }) => {
   const { data: cryptoList, isFetching } = useGetCryptosQuery(count);
   const [cryptos, setCryptos] = useState([]);
   const [searchTerms, setSearchTerms] = useState("");
-  // console.log(cryptos);
+  // console.log(cryptoList);
 
   /*
    * searchTerms and onChange သုံးကတည်းက useEffect hook သုံးရမယ်ဆိုတာမမေ့ပါနဲ့
@@ -22,6 +22,7 @@ const Cryptocurrencies = ({ simplified }) => {
       coin.name.toLowerCase().includes(searchTerms.toLowerCase())
     );
     setCryptos(filteredData);
+    // console.log(filteredData);
   }, [cryptoList, searchTerms]);
 
   if (isFetching) return "Loading...";
@@ -40,16 +41,16 @@ const Cryptocurrencies = ({ simplified }) => {
         </div>
       )}
       <Row gutter={[32, 32]} className="crypto-card-container">
-        {cryptos?.map((currency,i) => (
+        {cryptos?.map((currency, i) => (
           <Col key={i} xs={24} sm={12} lg={6} className="crypto-card">
-            <Link to={`/crypto/${currency.id}`}>
+            <Link to={`/crypto/${currency.uuid}`}>
               <Card
                 title={`${currency.rank}. ${currency.name}`}
                 extra={<img className="crypto-image" src={currency.iconUrl} />}
                 hoverable
               >
-                <p>Price: {millify(currency.price)}</p> 
-                <p>Market Cap: {millify(currency.marketCap)}</p> 
+                <p>Price: {millify(currency.price)}</p>
+                <p>Market Cap: {millify(currency.marketCap)}</p>
                 <p>Daily Change: {millify(currency.change)}</p>
               </Card>
             </Link>
