@@ -12,7 +12,7 @@ This project is done (May 10, 2022).
 
 ## Project Live View
 
-[Site](https://google-search-galugalu.netlify.app/search)
+[Site](https://cryptospace-pwn.netlify.app/)
 
 ## Installation and Setup Instructions
 
