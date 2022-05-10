@@ -28,7 +28,7 @@ ChartJS.register(
 );
 
 const LineChart = ({ coinHistory, currentPrice, coinName }) => {
-  console.log({ coinHistory });
+  // console.log({ coinHistory });
 
   const coinPrice = [];
   const coinTimeStamp = [];
@@ -41,7 +41,7 @@ const LineChart = ({ coinHistory, currentPrice, coinName }) => {
         coinHistory?.data?.history[i]?.timestamp * 1000
       ).toLocaleDateString()
     );
-    console.log(coinTimeStamp);
+    // console.log(coinTimeStamp);
   }
 
   //* For LineChart Data

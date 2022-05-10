@@ -4,6 +4,7 @@ import { Select, Typography, Row, Col, Avatar, Card } from "antd";
 
 import { useGetCryptoNewsQuery } from "../services/cryptoNewsApi";
 import { useGetCryptosQuery } from "../services/cryptoApi";
+import Loader from "./Loader";
 
 const { Text, Title } = Typography;
 const { Option } = Select;
@@ -22,7 +23,7 @@ const News = ({ simplified }) => {
 
   const { data: cryptoList } = useGetCryptosQuery(100);
 
-  if (!cryptoNews) return "Loading...";
+  if (!cryptoNews) return <Loader />;
 
   return (
     <Row gutter={[24, 24]}>
@@ -36,7 +37,7 @@ const News = ({ simplified }) => {
             onChange={(value) => setNewsCategory(value)}
             filterOption={(input, option) =>
               option.children.toLowerCase().indexOf(input.toLowerCase()) >= 0
-            } 
+            }
           >
             <Option value="Cryptocurrency">Cryptocurrency</Option>
             {cryptoList?.data?.coins?.map((coin, i) => (

@@ -3,6 +3,7 @@ import millify from "millify";
 import { Link } from "react-router-dom";
 import { Card, Input, Row, Col } from "antd";
 import { DollarOutlined } from "@ant-design/icons";
+import Loader from "./Loader";
 
 import { useGetCryptosQuery } from "../services/cryptoApi";
 
@@ -25,7 +26,7 @@ const Cryptocurrencies = ({ simplified }) => {
     // console.log(filteredData);
   }, [cryptoList, searchTerms]);
 
-  if (isFetching) return "Loading...";
+  if (isFetching) return <Loader />;
 
   return (
     <>
@@ -46,7 +47,13 @@ const Cryptocurrencies = ({ simplified }) => {
             <Link to={`/crypto/${currency.uuid}`}>
               <Card
                 title={`${currency.rank}. ${currency.name}`}
-                extra={<img className="crypto-image" src={currency.iconUrl} />}
+                extra={
+                  <img
+                    className="crypto-image"
+                    src={currency.iconUrl}
+                    alt="crypto"
+                  />
+                }
                 hoverable
               >
                 <p>Price: {millify(currency.price)}</p>
