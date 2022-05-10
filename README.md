@@ -12,7 +12,7 @@ This project is done (May 10, 2022).
 
 ## Installation and Setup Instructions
 
-Clone down this repository. You will need `node` and `npm` installed globally on your machine.
+Clone down this repository. You will need `node` and `npm` installed globally on your machine and change the env file with your own api keys from RapidAPI before you start running the application.
 
 Installation:
 
@@ -30,7 +30,7 @@ To Visit App:
 
 This was a week long project built during pendamic breakout and military coup (May 2022). Project goals included using technologies learned up until this point and familiarizing myself with documentation for new features.
 
-Originally I wanted to build an application that allowed users to look over crypto prices and news. I started this process by using the `create-react-app` boilerplate, then adding `antdesign` , `redux` , `redux toolkit` , `axios` , `chart.js` , `html-react-parser` , `millify` , `moment` and `react-chartjs-2`.
+Originally I wanted to build an application that allowed users to look over crypto prices and news. I started this process by using the `create-react-app` boilerplate, then adding `antdesign` , `redux` , `redux toolkit` , `axios` , `chart.js` , `html-react-parser` , `millify` , `moment` and `react-chartjs-2`. I use ` Coinranking ` and ` bing news ` api from Rapid API, make sure you subscribe these before you start running the application.
 
 One of the main challenges I ran into was react-router-dom version changes and rapid api premium problem TwT.
 
