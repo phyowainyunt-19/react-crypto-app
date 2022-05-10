@@ -10,6 +10,10 @@ This project is done (May 10, 2022).
 
 ![Layout](https://i.ibb.co/LhDyptd/crypto.png)
 
+
+## Project Live View
+![Site](https://cryptospace-pwn.netlify.app/)
+
 ## Installation and Setup Instructions
 
 Clone down this repository. You will need `node` and `npm` installed globally on your machine and change the env file with your own api keys from RapidAPI before you start running the application.
